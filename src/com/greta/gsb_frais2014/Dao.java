@@ -258,27 +258,5 @@ public class Dao extends SQLiteOpenHelper {
 		
 	}
 	
-//	public int export(){
-//		
-//		File exportDir = new File(Environment.getExternalStorageDirectory(),"stokageGsb");
-//		
-//			if(!exportDir.exists())
-//			{
-//				exportDir.mkdirs();
-//			}
-//		
-//			int nbre = 0;
-//			File file = new File(exportDir, "csvFF.csv");
-//			
-//			try
-//			{
-//				file.createNewFile();
-//				CSVWriter csvwriter = new CSVWriter(new FileWriter(file));
-//			}
-//			
-//		db = getReadableDatabase();
-//		sql = "select * from " + TABLE_FF;
-//		c= db.rawQuery(sql, null);
-//	}
 
 }
