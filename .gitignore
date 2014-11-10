@@ -1,0 +1,14 @@
+assets/
+bin/
+gen/
+libs/
+./AndroidManifest.xml
+./ic_launcher-web.png
+./lint.xml
+./proguard-project.txt
+./project.properties
+
+!res/
+res/*
+!res/layout/
+

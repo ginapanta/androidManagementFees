@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blue" >
+
+    <Button
+        android:id="@+id/btExport"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="Export" 
+        android:background="#b0c4de"/>
+
+    <Button
+        android:id="@+id/btFHF"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btExport"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="22dp"
+        android:text="Frais hors forfait"
+        android:background="#f0ffff" />
+
+    <Button
+        android:id="@+id/btStatistiques"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btExport"
+        android:layout_marginTop="31dp"
+        android:text="Statistiques"
+        android:background= "#00ffff"/>
+
+    <Button
+        android:id="@+id/btFF"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btFHF"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="37dp"
+        android:text="Frais au Forfait" />
+
+</RelativeLayout>

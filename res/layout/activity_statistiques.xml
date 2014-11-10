@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ble" >
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Statistiques"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#800080" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView6"
+        android:layout_marginTop="36dp"
+        android:text="Du"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#800080" />
+
+    <EditText
+        android:id="@+id/etDate1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_toLeftOf="@+id/textView8"
+        android:layout_toRightOf="@+id/textView3"
+        android:ems="10"
+        android:inputType="date" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/etDate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_toRightOf="@+id/textView8"
+        android:ems="10"
+        android:inputType="date" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:text="au"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#800080" />
+
+    <Button
+        android:id="@+id/btValider"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/etDate2"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="18dp"
+        android:text="Valider"
+        android:textColor="#800080" />
+
+    <EditText
+        android:id="@+id/etEssence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView6"
+        android:layout_alignTop="@+id/btValider"
+        android:layout_toRightOf="@+id/textView4"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/etEtapes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_alignLeft="@+id/etRepas"
+        android:layout_alignRight="@+id/etRepas"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/etTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignLeft="@+id/etEtapes"
+        android:layout_alignRight="@+id/etEtapes"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etEssence"
+        android:layout_toLeftOf="@+id/textView6"
+        android:text="Essence"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#800080" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView7"
+        android:layout_below="@+id/textView7"
+        android:layout_marginTop="20dp"
+        android:text="Total"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#800080" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_below="@+id/btValider"
+        android:text="Nuitees"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#800080" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="53dp"
+        android:text="Etapes"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#800080" />
+
+    <EditText
+        android:id="@+id/etRepas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etEssence"
+        android:layout_alignRight="@+id/etEssence"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etRepas"
+        android:layout_alignRight="@+id/textView1"
+        android:text="Repas"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#800080" />
+
+    <EditText
+        android:id="@+id/etNuitees"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etRepas"
+        android:layout_alignRight="@+id/etEssence"
+        android:layout_toRightOf="@+id/textView7"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+</RelativeLayout>

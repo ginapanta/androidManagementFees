@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/darkgreen"  >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_marginTop="40dp"
+        android:text="Matricule"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fffaf0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="72dp"
+        android:text="Nom"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fffaf0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="26dp"
+        android:text="Mot de Passe"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fffaf0" />
+
+    <EditText
+        android:id="@+id/etMat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_marginLeft="24dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:textColor="#fffaf0"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/etNom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/etMat"
+        android:textColor="#fffaf0"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/etMdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/etNom"
+        android:textColor="#fffaf0"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/btValider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:text="Valider"
+        android:textColor="#fffaf0"
+        android:onClick="configVisiteur" />
+
+</RelativeLayout>

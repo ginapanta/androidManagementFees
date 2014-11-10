@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/greencolor" >
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="56dp"
+        android:layout_toRightOf="@+id/textView5"
+        android:src="@drawable/camera" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/textView2"
+        android:text="Frais Hors Forfait"
+        android:textColor="#afeeee"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/btnValider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButton1"
+        android:layout_alignRight="@+id/textView6"
+        android:text="Valider"
+        android:onClick="insertionFraisHorsForfait"
+        android:textColor="#afeeee" />
+
+   
+
+        <requestFocus />
+    
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_centerVertical="true"
+        android:text="Libelle"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#afeeee" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="28dp"
+        android:text="Montant"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#afeeee" />
+
+    <EditText
+        android:id="@+id/etDateh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/etMat"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:textColor="#afeeee"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/etMontant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageButton1"
+        android:layout_alignLeft="@+id/etLibelle"
+        android:textColor="#afeeee"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/etLibelle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignParentRight="true"
+        android:textColor="#afeeee"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etDateh"
+        android:layout_alignParentLeft="true"
+        android:text="Matricule"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#afeeee" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etLibelle"
+        android:layout_marginBottom="14dp"
+        android:layout_toLeftOf="@+id/textView6"
+        android:text="Date"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#afeeee" />
+
+    <EditText
+        android:id="@+id/etMath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:textColor="#afeeee"
+        android:ems="10" />
+    
+</RelativeLayout>
