@@ -1,4 +1,4 @@
-androidProject1
+androidManagementFees
 ===============
 
 This is an Android Project under my course 'Software Developer'.
