@@ -12,7 +12,8 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 import android.view.View;
 
-public class FraisHorsForfaitActivity extends Activity{
+public class FraisHorsForfaitActivity extends Activity
+{
 
 	EditText tmat;
 	EditText tdate;	
@@ -24,31 +25,24 @@ public class FraisHorsForfaitActivity extends Activity{
 	SQLiteDatabase db;
 	
 	
-	protected void onCreate(Bundle savedInstanceState){
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		dao = new Dao(this);
 			
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.activity_frais_hors_forfait);								
 		
-//		dateSysteme();
-		
-		
-		//mettre la date systeme dans etDate du layout activity_frais_forfait
-		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");			
-		Date date = new Date();
-		String nowDate = dateFormat.format(date);
-		tdate= (EditText) findViewById(R.id.etDateh);
-		tdate.setText(nowDate);
-													
+		dateSysteme();
+												
 		String matVis = dao.recupIdVisiteur();	
 		tmat = (EditText)findViewById(R.id.etMath);
 		tmat.setText(matVis);
 		
 	}
 
-	public void insertionFraisHorsForfait(View v){
+	public void insertionFraisHorsForfait(View v)
+	{
 			
 		tlibelle=(EditText) findViewById(R.id.etLibelle);
 		
@@ -75,11 +69,10 @@ public class FraisHorsForfaitActivity extends Activity{
 		dao.sqlInsererFraisHorsForfait(fhf);
 	
 	}
-
 	
-	
-	
-	public void dateSysteme(){
+	//mettre la date systeme dans etDate du layout activity_frais_forfait
+	public void dateSysteme()
+	{
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");		
 		Date date = new Date();

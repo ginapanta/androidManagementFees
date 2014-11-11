@@ -19,7 +19,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.view.View;
 
-public class FraisForfaitActivity extends Activity{
+public class FraisForfaitActivity extends Activity
+{
 
 	RadioButton rbFF;
 	RadioGroup rgFF;
@@ -31,11 +32,9 @@ public class FraisForfaitActivity extends Activity{
 	Dao dao;
 	SQLiteDatabase db;
 	String ff_ID="";
-
 	
-	
-	
-	protected void onCreate(Bundle savedInstanceState){
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		dao = new Dao(this);
 			
 		super.onCreate(savedInstanceState);
@@ -46,12 +45,7 @@ public class FraisForfaitActivity extends Activity{
 		
 		//mettre la date systeme dans etDate du layout activity_frais_forfait
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");			
-		Date date = new Date();
-		String nowDate = dateFormat.format(date);
-		
-		txtDate= (EditText) findViewById(R.id.etDate);
-		txtDate.setText(nowDate);
+		dateSystem();
 		
 		txtQuantite = (EditText)findViewById(R.id.etQuantite);
 		
@@ -61,14 +55,14 @@ public class FraisForfaitActivity extends Activity{
 					
 		String numVis = dao.recupIdVisiteur();
 						
-		lvFrais.setOnItemClickListener(new OnItemClickListener(){
-
+		lvFrais.setOnItemClickListener(new OnItemClickListener()
+		{
 			/* (non-Javadoc)
 			 * @see android.widget.AdapterView.OnItemClickListener#onItemClick(android.widget.AdapterView, android.view.View, int, long)
 			 */
 			@Override
-			public void onItemClick(AdapterView<?> adapter, View v,int position , long id) {
-
+			public void onItemClick(AdapterView<?> adapter, View v,int position , long id) 
+			{
 				String lib, date, qt;
 				
 				Cursor row =(Cursor)adapter.getItemAtPosition(position);
@@ -84,20 +78,19 @@ public class FraisForfaitActivity extends Activity{
 									
 				if("Repas".equals(lib.trim()))
 					rgFF.check(R.id.rbRepas);
-				if("Nuitï¿½e".equals(lib.trim()))
+				if("Nuitée".equals(lib.trim()))
 					rgFF.check(R.id.rbNuite);
 				if("Km".equals(lib.trim()))
 					rgFF.check(R.id.rbKm);
 				if("Etape".equals(lib.trim()))
 					rgFF.check(R.id.rbEtape);
-			}
-			
+			}			
 		});							
 		garnirListView();
 	}
 
-	public void insertionFraisForfait(View v){
-																
+	public void insertionFraisForfait(View v)
+	{																
 		txtQuantite = (EditText) findViewById(R.id.etQuantite);		
 															//radio button prestations
 		rgFF= (RadioGroup)findViewById(R.id.rg1);
@@ -117,48 +110,41 @@ public class FraisForfaitActivity extends Activity{
 		
 		txtDate=(EditText)findViewById(R.id.etDate);
 		
-//		String dateFrais= txtDate.toString(); // jamais l'utiliser
-		
 		String numVis= dao.recupIdVisiteur();				
 															//control saisie de km
 		if(txtQuantite.getText().toString().length() == 0)
 		{			
 			Toast.makeText(FraisForfaitActivity.this, "veuillez saisir le nombre de km", Toast.LENGTH_LONG).show();
-		}else{	
-			
+		}
+		else
+		{			
 			FraisForfait ff= new FraisForfait
 			(numVis,
 			txtDate.getText().toString(),
 			presta,
 			Integer.parseInt(txtQuantite.getText().toString()));
-		
-		
+			
 		dao.sqlInsererFraisForfait(ff, txtDate.getText().toString(),rbFF.getText().toString());
 		
 		garnirListView();
-		}
-			
+		}			
 	}
 
 	
-	public void initialiserQuantite(View v){
-		
+	public void initialiserQuantite(View v){		
 		txtQuantite = (EditText)findViewById(R.id.etQuantite);
-		txtQuantite.setText("1");
-	
+		txtQuantite.setText("1");	
 	}
 	
-	public void initialiserKM(View v){
-		
+	public void initialiserKM(View v)
+	{		
 		txtQuantite=(EditText)findViewById(R.id.etQuantite);
-		txtQuantite.setText("");
-	
-		
+		txtQuantite.setText("");			
 	}
 	
 	@SuppressWarnings("deprecation")
-	public void garnirListView(){
-		
+	public void garnirListView()
+	{	
 		Cursor c = dao.tousLesFraisForfait();
 		adapter = new SimpleCursorAdapter(
 				this,
@@ -167,16 +153,23 @@ public class FraisForfaitActivity extends Activity{
 				new String[] {Dao.C_IDFRAISFORFAIT, Dao.C_DATE, Dao.C_QUANTITE },
 				new int[]{R.id.tvLib, R.id.tvDate2, R.id.tvMnt2});
 		
-		lvFrais.setAdapter(adapter);
-		
+		lvFrais.setAdapter(adapter);		
 	}
 	
-	public void supprimerFF(View v){
-		
+	public void supprimerFF(View v)
+	{		
 		dao.sqlSupprimerFraisForfait(ff_ID);
-		garnirListView();
-		
+		garnirListView();		
 	}
 
+	public void dateSystem()
+	{
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");			
+		Date date = new Date();
+		String nowDate = dateFormat.format(date);
+		
+		txtDate= (EditText) findViewById(R.id.etDate);
+		txtDate.setText(nowDate);
+	}
 	
 }

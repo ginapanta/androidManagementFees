@@ -4,6 +4,7 @@
 package com.greta.gsb_frais2014;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 
 import android.content.ContentValues;
@@ -12,6 +13,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,8 +22,8 @@ import android.widget.Toast;
  * @author greta
  *
  */
-public class Dao extends SQLiteOpenHelper {
-	
+public class Dao extends SQLiteOpenHelper 
+{	
 	
 	//nom de la base de donnï¿½es
 	static final String DATABASE= "gsb.db";
@@ -46,7 +48,7 @@ public class Dao extends SQLiteOpenHelper {
 	static final String C_DATEFHF = "dated";
 	static final String C_LIBELLE = "libelle";		
 	static final String C_MONTANT = "montant";
-
+	//cette variable permet de faire de Toast dans cette classe
 	private Context cont;
 	Spinner spinnerPV;
 		
@@ -56,16 +58,18 @@ public class Dao extends SQLiteOpenHelper {
 	Cursor c;
 
 	
-	 public Dao(Context context) {
+	 public Dao(Context context) 
+	 {
 			
 			super(context, DATABASE, null, VERSION);
 			cont = context;
-		}
+	 }
 
 	@Override
-	public void onCreate(SQLiteDatabase db) {
+	public void onCreate(SQLiteDatabase db) 
+	{
 		
-		//Crï¿½ation de la table Visiteur
+		//Création de la table Visiteur
 		db.execSQL("CREATE TABLE  "+TABLE_VISITEUR+ 
 				"(" +C_MAT + " TEXT PRIMARY KEY, " 
 					+C_NOM +" TEXT, "
@@ -91,7 +95,8 @@ public class Dao extends SQLiteOpenHelper {
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) 
+	{
 		
 		//Drop old version table
 		db.execSQL("Drop table" + TABLE_VISITEUR);		
@@ -101,7 +106,8 @@ public class Dao extends SQLiteOpenHelper {
 		
 	}
 	
-	public void sqlInsererVisiteur(Visiteur visiteur){
+	public void sqlInsererVisiteur(Visiteur visiteur)
+	{
 		
 		//dans ce conteneur on va mettre les donnï¿½es de la table Visiteur
 		ContentValues values = new ContentValues();
@@ -115,22 +121,20 @@ public class Dao extends SQLiteOpenHelper {
 		
 	}
 	
-	
-	public void sqlInsererFraisForfait(FraisForfait ff,String dateFrais, String presta){
-		
+	//On vérifie que les prestations n'ont pas été saisis pour le même jour
+	public void sqlInsererFraisForfait(FraisForfait ff,String dateFrais, String presta)
+	{		
 		db= getReadableDatabase();
-		
-		
+			
 			c= db.rawQuery("select * from " +TABLE_FF+ " where " +C_IDFRAISFORFAIT+ " = '"+presta+"'  and " +C_DATE+ " = '"+dateFrais+"'" , null);
 								
 			if( c.getCount()!= 0)
 			{
-				Toast.makeText(cont, "la prestation est deja saisie pour ce jour", Toast.LENGTH_LONG).show();			
-			
-			}else{
-			
-		
-			//dans ce conteneur on va mettre les donnï¿½es de la table Frais Forfait
+				Toast.makeText(cont, "la prestation est deja saisie pour ce jour", Toast.LENGTH_LONG).show();						
+			}
+			else
+			{		
+			//dans ce conteneur on va mettre les données de la table Frais Forfait
 			ContentValues values = new ContentValues();
 			
 			values.put(C_MAT, ff.getNumVis());
@@ -147,13 +151,13 @@ public class Dao extends SQLiteOpenHelper {
 					+ "  " +
 					ff.getDate() + " "+ff.getNumVis(),
 					Toast.LENGTH_LONG).show();						
-			}	
-		
+			}			
 	}
 	
-	public void sqlInsererFraisHorsForfait(FraisHorsForfait fhf){
+	public void sqlInsererFraisHorsForfait(FraisHorsForfait fhf)
+	{
 		
-		//dans ce conteneur on va mettre les donnï¿½es de la table Frais Forfait
+		//dans ce conteneur on va mettre les donnees de la table Frais Forfait
 		ContentValues values = new ContentValues();
 			
 		values.put(C_MATFHF,  fhf.getMat());
@@ -167,19 +171,20 @@ public class Dao extends SQLiteOpenHelper {
 		
 	}
 
-	public int countVisiteur(){
+	public int countVisiteur()
+	{
 		db= getWritableDatabase();
 				
 		sql = "select count(*) from  " + TABLE_VISITEUR;
 		
-		//un curseur c'est un espace mï¿½moire oï¿½ on stocke les donnï¿½es, pour gerer une requete on a besoin d'un cursor
-		//on entre dans la requï¿½te
+		//un curseur c'est un espace memoire où on stocke les données, pour gerer une requete on a besoin d'un cursor
+		//on entre dans la requete
 		c= db.rawQuery(sql, null);
 		
 		//on execute la requete
 		c.moveToFirst();
 		
-		//on rï¿½cupï¿½re la requete
+		//on recupere la requete
 		int total = c.getInt(0);
 		
 		c.close();
@@ -188,7 +193,8 @@ public class Dao extends SQLiteOpenHelper {
 		return total;		
 	}
 	
-	public String identificationVisiteur(String pass){
+	public String identificationVisiteur(String pass)
+	{
 		
 		String matVisiteur = "0";
 		db= getWritableDatabase();
@@ -216,7 +222,8 @@ public class Dao extends SQLiteOpenHelper {
 		return c;
 	}
 	
-	public String recupIdVisiteur(){
+	public String recupIdVisiteur()
+	{
 		
 		String matVisiteur;
 		
@@ -235,7 +242,8 @@ public class Dao extends SQLiteOpenHelper {
 		return matVisiteur;				
 	}
 	
-	public void sqlModifFrais(FraisForfait frais, String selected_ID){
+	public void sqlModifFrais(FraisForfait frais, String selected_ID)
+	{
 		
 		ContentValues values = new ContentValues();
 		values.put(C_DATE, frais.getDate());
@@ -250,7 +258,8 @@ public class Dao extends SQLiteOpenHelper {
 		
 	}
 
-	public void sqlSupprimerFraisForfait(String selected_ID) {
+	public void sqlSupprimerFraisForfait(String selected_ID) 
+	{
 		
 		db=getWritableDatabase();
 		db.delete(TABLE_FF, C_ID + "=?", new String[] {selected_ID});
@@ -258,5 +267,51 @@ public class Dao extends SQLiteOpenHelper {
 		
 	}
 	
+	public String sqlLireFraisForfait(String dateDebut,String dateFin)
+	{	
+		String prestation = c.getString(0);
+		db= getReadableDatabase();
+				
+			c= db.rawQuery("select idFraisForfait from " +TABLE_FF+ " where "  +C_DATE+ " between '"+dateDebut+"' and '"+dateFin+"' group by idFraisForfait" , null);
+			c.moveToFirst();
+			if( c.getCount()== 0)
+			{
+				Toast.makeText(cont, "il n'y a pas eu de prestation entre ces dates", Toast.LENGTH_LONG).show();
+			}
+			else
+			{
+				Toast.makeText(cont,prestation , Toast.LENGTH_LONG).show();
+				return prestation;
+			}
+			c.close();
+			db.close();
+			return prestation;
+	}							
+	
+	
+	public void exportCsv()
+	{
+		
+		String FILENAME = "tableFF.csv";
+		db = getReadableDatabase();
+		sql = "select * from " + TABLE_FF;
+		c= db.rawQuery(sql, null);
+		
+		try
+		{
+			FileOutputStream out = openFileOutput (FILENAME, Context.MODE_APPEND);
+			out.write(sql.getBytes());
+			out.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 
+	private FileOutputStream openFileOutput(String fILENAME, int modeAppend) 
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

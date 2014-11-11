@@ -70,6 +70,19 @@ public class MenuActivity extends Activity {
 			}
 		});
 		
+		btexp = (Button)findViewById(R.id.btExport);
+		
+		btexp.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent intent = new Intent(MenuActivity.this, CreateCsvActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
 	}
 	
 	
