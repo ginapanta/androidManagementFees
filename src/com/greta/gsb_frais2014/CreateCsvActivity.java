@@ -3,6 +3,8 @@ package com.greta.gsb_frais2014;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import com.opencsv.CSVWriter;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.database.Cursor;
@@ -13,7 +15,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
-import au.com.bytecode.opencsv.CSVWriter;
+
 
 
 public class CreateCsvActivity extends Activity 
@@ -40,7 +42,7 @@ public class CreateCsvActivity extends Activity
 	        int count1 = c1.getCount();
 	        
 	        if (count1 == 0) {	            
-	            Toast.makeText(CreateCsvActivity.this, "Il n'y a pas de données à exporter", Toast.LENGTH_LONG).show();
+	            Toast.makeText(CreateCsvActivity.this, "Il n'y a pas de donnï¿½es ï¿½ exporter", Toast.LENGTH_LONG).show();
 	        }
 	        
 	        try
